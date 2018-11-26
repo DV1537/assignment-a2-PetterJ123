@@ -1,2 +1,5 @@
 .idea/*
 shape
+cmake-build-debug/*
+CMakeLists.*
+*.exe
