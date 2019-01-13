@@ -9,5 +9,4 @@ class Polygon {
 
 };
 
-
 #endif //ASSIGNMENT_A2_PETTERJ123_POLYGON_H

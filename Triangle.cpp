@@ -3,35 +3,34 @@
 //
 
 #include "Triangle.hpp"
+#include <math.h>
 
+Triangle::Triangle() {}
 
-Triangle::Triangle(double x1Pos,
-                    double y1Pos,
-                    double x2Pos,
-                    double y2Pos,
-                    double x3Pos,
-                    double y3Pos) : Shape(
-                                        typeShape,
-                                        shapeArea,
-                                        xPos,
-                                        yPos,
-                                        distance,
-                                        circumference,
-                                        centPosX,
-                                        centPosY){
+float Triangle::calculateArea() {
 
+    return 0;
 }
 
-Triangle::~Triangle() {
-    // Destruct object, free memory a.s.o
-    std::cout << this->typeShape << " got deconstructed\n";
+Triangle::Triangle(float *x1,
+                    float *y1,
+                    float *x2,
+                    float *y2,
+                    float *x3,
+                    float *y3) {
+    this->x1 = x1;
+    this->y1 = y1;
+    this->x2 = x2;
+    this->y2 = y2;
+    this->x3 = x3;
+    this->y3 = y3;
 }
 
-Triangle::Triangle() {
-    this->x1Pos = 0;
-    this->y1Pos = 0;
-    this->x2Pos = 0;
-    this->y2Pos = 0;
-    this->x3Pos = 0;
-    this->y3Pos = 0;
+float Triangle::getCenterPos() {
+    return this->centerPosition;
 }
+
+float Triangle::getArea() {
+    return this->area;
+}
+

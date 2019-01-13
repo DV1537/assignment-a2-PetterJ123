@@ -8,62 +8,21 @@
 #include <string>
 #include <fstream>
 #include <iostream>
+#include "Vector.hpp"
 
 class Shape {
 public:
-    Shape();
-
     ~Shape();
-
-    Shape(std::string typeShape,
-            double shapeArea,
-            double xPos,
-            double yPos,
-            double distance,
-            double circumference,
-            double centPosX,
-            double centPosY);
-
-    // Custom deconstructor
-    // ~Shape();    Shall take in values
-
-    void setType(std::string type);
+    virtual float getArea() = 0;
+    float getCircumference();
     std::string getType();
-    void setArea(double shapeArea);
-    double getArea();
+    virtual float getCenterPos() = 0;
 
-    void setXPos(double xPos);
-    double getXPos();
-
-    void setYPos(double yPos);
-    double getYPos();
-
-    void setDistance(double distance);
-    double getDistance();
-
-    void setCircumference(double circumference);
-    double getCircumference();
-
-    void setCentPosX(double centPosX);
-    double getCentPosX();
-
-    void setCentPosY(double centPosY);
-    double getCentPosY();
-
-    bool isConvex();
-
-    void printInfo();
-
-protected:
+private:
+    float circumference;
     std::string typeShape;
-    double      shapeArea;
-    double      xPos;
-    double      yPos;
-    double      distance;
-    double      circumference;
-    double      centPosX;
-    double      centPosY;
-    bool        convexForm;
+    float centerPosition;
+    float area;
 };
 
 

@@ -1,67 +1,78 @@
 #include "Shape.hpp"
 #include "Triangle.hpp"
-
-void setObject(Triangle tri,
-                std::string type,
-                double area,
-                double xPos,
-                double yPos,
-                double circumference,
-                double centPosX,
-                double centPosY){
-    tri.setType(type);
-    tri.setArea(area);
-    tri.setXPos(xPos);
-    tri.setYPos(yPos);
-    tri.setCircumference(circumference);
-    tri.setCentPosX(centPosX);
-    tri.setCentPosY(centPosY);
-    tri.printInfo();
-}
+#include "Vector.hpp"
 
 int main() {
-    int count=0;
-    int i=0;
     std::ifstream input;
     input.open("input.txt");
 
+    int count = 0;
     double coord = 0.0;
     if(input.is_open()){
         std::cout << "File successfully opend!\n";
         while(input >> coord){
             count++;
-            i++;
         }
     }else{
         std::cout << "File is not open!\n";
     }
 
-    double* coordinates = new double[count];
+    if(count%2==0){
+        std::cout << "Even number of coordinates\n";
+    }else{
+        std::cout << "Odd number of coordinates\n";
+    }
 
+    // Starts at the beginning of the file
     input.clear();
     input.seekg(0, std::ios::beg);
 
-    for(int i=0; i<count; i++){
+    float * coordinates;
+    coordinates = new float[count];
+
+    for(int i=0; i<count; ++i){
         input >> coordinates[i];
     }
+
     // Closes the file
     input.close();
-    std::string type = "Triangle";
-    double area = 11.4;
-    double xPos = 4;
-    double yPos = 3;
-    double ference = 13.45;
-    double centPosX = 3;
-    double centPosY = 2;
-    Triangle tri;
-    setObject(tri, type, area, xPos, yPos, ference, centPosX, centPosY);
+
+    for(int i=0; i<count; ++i){
+        std::cout << coordinates[i] << " ";
+    }
+    std::cout << "\n";
+
+    int newCount = count/2;
+    newCount++;
+    float * coordinatesX = new float[newCount];
+
+    float * coordinatesY = new float[newCount];
+
+    int evenCounter=0;
+    int oddCounter=0;
+    for(int i=0; i<count; ++i){
+        if(i%2==0){
+            coordinatesX[evenCounter] = coordinates[i];
+            evenCounter++;
+        }else{
+            coordinatesY[oddCounter] = coordinates[i];
+            oddCounter++;
+        }
+    }
+
+    std::cout << "X coordinates: ";
+    for(int i=0; i<evenCounter; ++i){
+        std::cout << coordinatesX[i] << " ";
+    }
+    std::cout << "\n";
+    std::cout << "Y coordinates: ";
+    for(int i=0; i<oddCounter; ++i){
+        std::cout << coordinatesY[i] << " ";
+    }
+
+    delete coordinates;
+    delete [] coordinatesX;
+    delete [] coordinatesY;
 
     return 0;
 }
-
-// TODO: classes
-// -T- Create point class
-// -T- Create line class
-// -T- Create Polygon class
-// TODO: goal
-// -T- Decide all shape attributes with given points
