@@ -79,8 +79,6 @@ int main(){
         lines[i].setY2(verts[i].getY());
     }
 
-
-
     /*lines[0].getInfo();
     std::cout << "\n";
     lines[1].getInfo();

@@ -4,7 +4,6 @@
 
 #include "Triangle.hpp"
 
-
 Triangle::Triangle() {
     this->l1.setX1(0.0f);
     this->l1.setY1(0.0f);
