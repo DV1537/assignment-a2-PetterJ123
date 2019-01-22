@@ -34,8 +34,24 @@ void Line::setY2(float y2) {
 }
 
 void Line::getInfo() {
-    std::cout << this->x1 << "\n";
-    std::cout << this->y1 << "\n";
-    std::cout << this->x2 << "\n";
-    std::cout << this->y2 << "\n";
+    std::cout << "X1: " << this->x1 << "\n";
+    std::cout << "Y1: " << this->y1 << "\n";
+    std::cout << "X2: " << this->x2 << "\n";
+    std::cout << "Y2: " << this->y2 << "\n";
+}
+
+float Line::getX1() const {
+    return this->x1;
+}
+
+float Line::getY1() const {
+    return this->y1;
+}
+
+float Line::getX2() const {
+    return this->x2;
+}
+
+float Line::getY2() const {
+    return this->y2;
 }

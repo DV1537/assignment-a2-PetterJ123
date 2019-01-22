@@ -71,20 +71,35 @@ int main(){
     delete [] coordinatesY;
 
     Line* lines = new Line[newNumOfCoords];
-
-    for(int i=0; i<newNumOfCoords; ++i){
+    // Setting of the vertecies for line array
+    for(int i=0; i<newNumOfCoords; i++){
         lines[i].setX1(verts[i].getX());
         lines[i].setY1(verts[i].getY());
-        lines[i].setX2(verts[i].getX());
-        lines[i].setY2(verts[i].getY());
+        lines[i].setX2(verts[i+1].getX());
+        lines[i].setY2(verts[i+1].getY());
     }
 
-    /*lines[0].getInfo();
-    std::cout << "\n";
-    lines[1].getInfo();
-    std::cout << "\n";
-    lines[2].getInfo();
-    std::cout << "\n";*/
+    // Unused code that sets the vertecies of the last line to the vertecies of the first line
+    /*lines[2].setX2(lines[0].getX1());
+    lines[2].setY2(lines[0].getY1());*/
+
+    Triangle tri = Triangle();
+    // If l3 and l1 vertecies are equal to eachoter it will be a triangle, otherwise, no
+    if(lines[2].getX2() == lines[0].getX1() &&
+        lines[2].getY2() == lines[0].getY1()){
+        // It's a triangle
+        tri.setL1(lines[0]);
+        tri.setL2(lines[1]);
+        tri.setL3(lines[2]);
+        tri.distance();
+    }
+
+    // Output of the lines start and end vertecies
+    /*for(int i=0; i<newNumOfCoords; i++){
+        std::cout << "Line: " << i << "\n";
+        lines[i].getInfo();
+        std::cout << "\n";
+    }*/
 
     return 0;
 }

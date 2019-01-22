@@ -19,10 +19,39 @@ Triangle::Triangle() {
     this->l3.setY2(0.0f);
 }
 
-float Triangle::calculateCircumference(Line *lines) {
+float Triangle::calculateCircumference() {
     return 0;
 }
 
-float Triangle::calculateArea(Line *lines) {
+float Triangle::calculateArea() {
+
     return 0;
+}
+
+float Triangle::distance() {
+    return 0.0f;
+}
+
+void Triangle::setType(std::string &type){
+    type = type;
+}
+
+float Triangle::position() {
+    return 0.0f;
+}
+
+bool Triangle::isConvex() {
+    return false;
+}
+
+void Triangle::setL1(Line l1) {
+    this->l1 = l1;
+}
+
+void Triangle::setL2(Line l2) {
+    this->l2 = l2;
+}
+
+void Triangle::setL3(Line l3) {
+    this->l3 = l3;
 }

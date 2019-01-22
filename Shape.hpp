@@ -5,25 +5,22 @@
 #ifndef ASSIGNMENT_A2_PETTERJ123_SHAPE_H
 #define ASSIGNMENT_A2_PETTERJ123_SHAPE_H
 
-#include "Vector.hpp"
 #include "Line.hpp"
-
 #include <string>
 
 class Shape{
 public:
-    virtual float calculateArea(Line* lines) = 0;
-    virtual float calculateCircumference(Line* lines) = 0;
-    virtual float distance();
-    virtual float position();
-    virtual bool isConvex();
-    void setType(std::string& type);
-    std::string getType();
+    virtual float calculateArea() = 0;
+    virtual float calculateCircumference() = 0;
+    virtual float distance() = 0;
+    virtual float position() = 0;
+    virtual bool isConvex() = 0;
+    virtual void setType(std::string& type) = 0;
 
 private:
-    float area;
-    float circumference;
-    std::string type;
+    float area = 0.0f;
+    float circumference = 0.0f;
+    std::string type = "";
 };
 
 

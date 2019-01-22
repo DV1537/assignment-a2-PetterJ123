@@ -5,6 +5,7 @@
 #ifndef ASSIGNMENT_A2_PETTERJ123_LINE_H
 #define ASSIGNMENT_A2_PETTERJ123_LINE_H
 
+#include <ostream>
 #include "Vector.hpp"
 
 class Line{
@@ -19,9 +20,15 @@ public:
     void setX2(float x2);
     void setY2(float y2);
 
+    float getX1() const;
+    float getY1() const;
+    float getX2() const;
+    float getY2() const;
+
     void getInfo();
 
 private:
+
     float x1, x2, y1, y2;
 };
 
