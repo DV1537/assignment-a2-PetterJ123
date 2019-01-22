@@ -79,19 +79,15 @@ int main(){
         lines[i].setY2(verts[i+1].getY());
     }
 
-    // Unused code that sets the vertecies of the last line to the vertecies of the first line
-    /*lines[2].setX2(lines[0].getX1());
-    lines[2].setY2(lines[0].getY1());*/
-
     Triangle tri = Triangle();
     // If l3 and l1 vertecies are equal to eachoter it will be a triangle, otherwise, no
     if(lines[2].getX2() == lines[0].getX1() &&
         lines[2].getY2() == lines[0].getY1()){
-        // It's a triangle
+        std::cout << "It's a triangle\n";
         tri.setL1(lines[0]);
         tri.setL2(lines[1]);
         tri.setL3(lines[2]);
-        tri.distance();
+        std::cout << tri.distance();
     }
 
     // Output of the lines start and end vertecies

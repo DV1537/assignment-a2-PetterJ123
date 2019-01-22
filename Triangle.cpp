@@ -24,12 +24,28 @@ float Triangle::calculateCircumference() {
 }
 
 float Triangle::calculateArea() {
-
     return 0;
 }
 
 float Triangle::distance() {
-    return 0.0f;
+    float unsquaredX = 0.0f,
+            unsquaredY = 0.0f,
+            unrootedArea = 0.0f,
+            rootedArea = 0.0f,
+            area = 0.0f;
+
+    if(l1.getY2() >= l1.getY1() && l1.getX2() > l1.getX1()){
+        unsquaredY = (l1.getY2() - l1.getY1());
+        unsquaredX = (l1.getX2() - l1.getX1());
+    }else{
+        unsquaredY = (l1.getY1() - l1.getY2());
+        unsquaredX = (l1.getX1() - l1.getX2());
+    }
+
+    unrootedArea = (powf(unsquaredY, 2)) + (powf(unsquaredX, 2));
+    area = sqrtf(unrootedArea);
+
+    return area;
 }
 
 void Triangle::setType(std::string &type){

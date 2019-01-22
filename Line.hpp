@@ -6,6 +6,7 @@
 #define ASSIGNMENT_A2_PETTERJ123_LINE_H
 
 #include <ostream>
+#include <cmath>
 #include "Vector.hpp"
 
 class Line{
@@ -25,10 +26,7 @@ public:
     float getX2() const;
     float getY2() const;
 
-    void getInfo();
-
 private:
-
     float x1, x2, y1, y2;
 };
 

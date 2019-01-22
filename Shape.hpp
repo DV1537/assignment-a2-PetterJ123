@@ -18,9 +18,9 @@ public:
     virtual void setType(std::string& type) = 0;
 
 private:
-    float area = 0.0f;
-    float circumference = 0.0f;
-    std::string type = "";
+    float area;
+    float circumference;
+    std::string type;
 };
 
 
