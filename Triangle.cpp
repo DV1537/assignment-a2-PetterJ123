@@ -5,7 +5,7 @@
 #include "Triangle.hpp"
 
 Triangle::Triangle() {
-    this->l1.setX1(0.0f);
+/*    this->l1.setX1(0.0f);
     this->l1.setY1(0.0f);
     this->l1.setX2(0.0f);
     this->l1.setY2(0.0f);
@@ -16,7 +16,13 @@ Triangle::Triangle() {
     this->l3.setX1(0.0f);
     this->l3.setY1(0.0f);
     this->l3.setX2(0.0f);
-    this->l3.setY2(0.0f);
+    this->l3.setY2(0.0f);*/
+}
+
+Triangle::Triangle(Line &l1, Line &l2, Line &l3) {
+    this->l1 = l1;
+    this->l2 = l2;
+    this->l3 = l3;
 }
 
 float Triangle::calculateCircumference() {
@@ -28,28 +34,7 @@ float Triangle::calculateArea() {
 }
 
 float Triangle::distance() {
-    float unsquaredX = 0.0f,
-            unsquaredY = 0.0f,
-            unrootedArea = 0.0f,
-            rootedArea = 0.0f,
-            area = 0.0f;
-
-    if(l1.getY2() >= l1.getY1() && l1.getX2() > l1.getX1()){
-        unsquaredY = (l1.getY2() - l1.getY1());
-        unsquaredX = (l1.getX2() - l1.getX1());
-    }else{
-        unsquaredY = (l1.getY1() - l1.getY2());
-        unsquaredX = (l1.getX1() - l1.getX2());
-    }
-
-    unrootedArea = (powf(unsquaredY, 2)) + (powf(unsquaredX, 2));
-    area = sqrtf(unrootedArea);
-
-    return area;
-}
-
-void Triangle::setType(std::string &type){
-    type = type;
+    return 0;
 }
 
 float Triangle::position() {
@@ -60,14 +45,30 @@ bool Triangle::isConvex() {
     return false;
 }
 
-void Triangle::setL1(Line l1) {
+void Triangle::setType(std::string &type) {
+
+}
+
+void Triangle::setL1(Line &l1) {
     this->l1 = l1;
 }
 
-void Triangle::setL2(Line l2) {
+void Triangle::setL2(Line &l2) {
     this->l2 = l2;
 }
 
-void Triangle::setL3(Line l3) {
+void Triangle::setL3(Line &l3) {
     this->l3 = l3;
+}
+
+Line Triangle::getL1() {
+    return this->l1;
+}
+
+Line Triangle::getL2(){
+    return this->l2;
+}
+
+Line Triangle::getL3(){
+    return this->l3;
 }

@@ -7,6 +7,7 @@
 #include "Vector.hpp"
 #include "Shape.hpp"
 #include "Triangle.hpp"
+#include "Line.hpp"
 
 int main(){
     std::fstream fileStream;
@@ -70,8 +71,8 @@ int main(){
     delete [] coordinatesX;
     delete [] coordinatesY;
 
-    Line* lines = new Line[newNumOfCoords];
     // Setting of the vertecies for line array
+    Line* lines = new Line[newNumOfCoords];
     for(int i=0; i<newNumOfCoords; i++){
         lines[i].setX1(verts[i].getX());
         lines[i].setY1(verts[i].getY());
@@ -79,22 +80,32 @@ int main(){
         lines[i].setY2(verts[i+1].getY());
     }
 
-    Triangle tri = Triangle();
+    Triangle* triangle = new Triangle();
+
+    for(int i=0; i<newNumOfCoords; i++){
+        triangle->setL1(lines[i]);
+        triangle->setL2(lines[i]);
+        triangle->setL3(lines[i]);
+    }
+
+    for(int i=0; i<newNumOfCoords; i++){
+        triangle->getL1();
+        triangle->getL2();
+        triangle->getL3();
+    }
+
+    triangle->distance();
+
+    /*Triangle* tri = new Triangle();
     // If l3 and l1 vertecies are equal to eachoter it will be a triangle, otherwise, no
     if(lines[2].getX2() == lines[0].getX1() &&
         lines[2].getY2() == lines[0].getY1()){
         std::cout << "It's a triangle\n";
-        tri.setL1(lines[0]);
-        tri.setL2(lines[1]);
-        tri.setL3(lines[2]);
-        std::cout << tri.distance();
-    }
-
-    // Output of the lines start and end vertecies
-    /*for(int i=0; i<newNumOfCoords; i++){
-        std::cout << "Line: " << i << "\n";
-        lines[i].getInfo();
-        std::cout << "\n";
+        tri->setL1(lines[0]);
+        tri->setL2(lines[1]);
+        tri->setL3(lines[2]);
+    }else{
+        std::cout << "It's not a triangle at least\n";
     }*/
 
     return 0;

@@ -5,7 +5,6 @@
 #ifndef ASSIGNMENT_A2_PETTERJ123_SHAPE_H
 #define ASSIGNMENT_A2_PETTERJ123_SHAPE_H
 
-#include "Line.hpp"
 #include <string>
 
 class Shape{
@@ -16,11 +15,6 @@ public:
     virtual float position() = 0;
     virtual bool isConvex() = 0;
     virtual void setType(std::string& type) = 0;
-
-private:
-    float area;
-    float circumference;
-    std::string type;
 };
 
 

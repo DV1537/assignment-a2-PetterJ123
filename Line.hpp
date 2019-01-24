@@ -6,16 +6,11 @@
 #define ASSIGNMENT_A2_PETTERJ123_LINE_H
 
 #include <ostream>
-#include <cmath>
-#include "Vector.hpp"
+#include "Shape.hpp"
 
-class Line{
+class Line : public Shape{
 public:
     Line();
-    Line(float x1,
-            float y1,
-            float x2,
-            float y2);
     void setX1(float x1);
     void setY1(float y1);
     void setX2(float x2);
@@ -26,8 +21,20 @@ public:
     float getX2() const;
     float getY2() const;
 
+    float getLength() const;
+
+    void setLength(float leng);
+
+    float calculateArea() override;
+    float calculateCircumference() override;
+    float distance() override;
+    float position() override;
+    bool isConvex() override;
+    void setType(std::string &type) override;
+
 private:
     float x1, x2, y1, y2;
+    float length;
 };
 
 #endif //ASSIGNMENT_A2_PETTERJ123_LINE_H
